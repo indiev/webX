@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Header, Main, Footer } from './page/Layout';
+import { Header, Main, Footer } from '~/pages/Layout';
 
 class App extends Component {
   render() {
