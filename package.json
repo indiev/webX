@@ -8,8 +8,8 @@
     "lint-css": "prettier-stylelint",
     "stylelint-check": "stylelint-config-prettier-check",
     "test": "jest",
-    "start": "webpack-dev-server -p --progress --config config/webpack.dev.js",
-    "build": "webpack -p --progress --config config/webpack.prod.js"
+    "start": "webpack-dev-server --progress --config config/webpack.dev.js",
+    "build": "webpack --progress --config config/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -85,6 +85,7 @@
     "postcss-flexbugs-fixes": "^3.3.1",
     "postcss-loader": "^2.1.6",
     "precss": "^3.1.2",
+    "prerender-spa-plugin": "^3.2.1",
     "prettier-stylelint": "^0.4.2",
     "react-dev-utils": "^5.0.1",
     "react-hot-loader": "^4.3.3",
