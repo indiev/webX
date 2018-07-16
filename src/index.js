@@ -9,8 +9,7 @@ import App from './App';
 
 import stores from './stores';
 
-import 'bootstrap/scss/bootstrap.scss';
-import './index.scss';
+import './styles/main.scss';
 
 const renderApp = Component =>
   render(

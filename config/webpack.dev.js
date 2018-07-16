@@ -36,9 +36,7 @@ module.exports = merge(common, {
           {
             loader: require.resolve('css-loader'),
             options: {
-              modules: true,
               importLoaders: 2,
-              camelCase: true,
               sourceMap: true
             }
           },

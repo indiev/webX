@@ -16,13 +16,13 @@ class Routes extends Component {
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div id="app">
         <Header>Header</Header>
         <Main>
           <Routes />
         </Main>
         <Footer>Footer</Footer>
-      </React.Fragment>
+      </div>
     );
   }
 }
