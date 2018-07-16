@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import { Header, Main, Footer } from '~/pages/Layout';
 
@@ -15,6 +15,7 @@ class Routes extends Component {
   }
 }
 
+@withRouter
 @trackGA
 class App extends Component {
   render() {

@@ -13,7 +13,7 @@ import './styles/main.scss';
 
 const renderApp = Component =>
   render(
-    <AppContainer>
+    <AppContainer key={Math.random()}>
       <Provider {...stores}>
         <BrowserRouter history={history}>
           <Component />
