@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import { Header, Main, Footer } from '~/pages/Layout';
 
+import trackGA from '~/utils/HOC/trackGA';
+
 import { routes } from './constants/routes';
 
 class Routes extends Component {
@@ -13,6 +15,7 @@ class Routes extends Component {
   }
 }
 
+@trackGA
 class App extends Component {
   render() {
     return (
