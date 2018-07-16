@@ -1,0 +1,16 @@
+.footer {
+  padding: 2rem 0;
+  background-color: #404040;
+  color: #fff;
+  text-align: right;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    height: 3.5rem;
+  }
+}
