@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 class Main extends Component {
   render() {
-    return <main role="main">{this.props.children}</main>;
+    return (
+      <main className="flex-fill" role="main">
+        {this.props.children}
+      </main>
+    );
   }
 }
 
