@@ -167,7 +167,6 @@ module.exports = {
     }),
     new webpack.HashedModuleIdsPlugin(),
     new Dotenv({
-      safe: true,
       systemvars: true,
       silent: true
     }),
