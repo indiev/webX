@@ -4,16 +4,13 @@ import { browserHistory as history } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'mobx-react';
-
 import App from './App';
-
 import stores from './stores';
-
 import './styles/main.scss';
 
 const renderApp = Component =>
   render(
-    <AppContainer key={Math.random()}>
+    <AppContainer>
       <Provider {...stores}>
         <BrowserRouter history={history}>
           <Component />

@@ -1,9 +1,9 @@
-import Asyncify from '~/components/Asyncify';
+import universal from 'react-universal-component';
 
 export const routes = [
   {
     path: '/',
     exact: true,
-    component: Asyncify(() => import('~/pages/Home'))
+    component: universal(() => import('~/pages/Home'))
   }
 ];
