@@ -16,6 +16,12 @@ module.exports = {
   ],
   rules: {
     'no-empty-source': null,
-    'string-quotes': 'single'
+    'string-quotes': 'single',
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global']
+      }
+    ]
   }
 };

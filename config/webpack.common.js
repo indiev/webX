@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -166,6 +167,10 @@ module.exports = {
       cwd: process.cwd()
     }),
     new webpack.HashedModuleIdsPlugin(),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    }),
     new Dotenv({
       systemvars: true,
       silent: true
