@@ -91,6 +91,7 @@
     "precss": "^3.1.2",
     "prerender-spa-plugin": "^3.2.1",
     "prettier-stylelint": "^0.4.2",
+    "raf": "^3.4.0",
     "react-dev-utils": "^5.0.1",
     "react-ga": "^2.5.3",
     "react-hot-loader": "^4.3.3",

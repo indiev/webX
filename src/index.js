@@ -4,9 +4,13 @@ import { browserHistory as history } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'mobx-react';
+import GA from 'react-ga';
 import App from './App';
 import stores from './stores';
 import './styles/main.scss';
+import { GA_ID } from '~/constants';
+
+GA.initialize(GA_ID);
 
 const renderApp = Component =>
   render(
