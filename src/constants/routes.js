@@ -1,9 +1,9 @@
-import universal from 'react-universal-component';
+import importedComponent from 'react-imported-component';
 
 export const routes = [
   {
     path: '/',
     exact: true,
-    component: universal(() => import('~/pages/Home'))
+    component: importedComponent(() => import('~/pages/Home'))
   }
 ];
