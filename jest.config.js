@@ -98,8 +98,6 @@ module.exports = {
 
   transform: {
     '\\.(js|jsx|mjs)$': require.resolve('babel-jest'),
-    '.*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/config/jest/imageTransform.js',
     '^(?!.*\\.(js|jsx|json|css|less|styl|scss|sass|sss)$)':
       '<rootDir>/config/jest/fileTransform.js'
   },
