@@ -54,5 +54,6 @@ module.exports = {
   appTsConfig: resolveApp('tsconfig.json'),
   appStylelintConfig: resolveApp('.stylelintrc.js'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json'))
+  servedPath: getServedPath(resolveApp('package.json')),
+  appGlobalStyles: resolveApp('src/styles')
 };

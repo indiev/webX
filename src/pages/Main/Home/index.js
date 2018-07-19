@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Page } from '~/components/Page';
 
 class Home extends Component {
   render() {
-    return <div>Home</div>;
+    return <Page>Home</Page>;
   }
 }
 

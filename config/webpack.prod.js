@@ -17,8 +17,14 @@ module.exports = merge(common, {
     rules: [
       {
         test: regexpStyle,
+        exclude: paths.appGlobalStyles,
         use: ExtractTextPlugin.extract({
-          fallback: require.resolve('style-loader'),
+          fallback: {
+            loader: require.resolve('style-loader'),
+            options: {
+              hmr: false
+            }
+          },
           use: [
             {
               loader: require.resolve('css-loader'),
@@ -26,7 +32,62 @@ module.exports = merge(common, {
                 modules: true,
                 importLoaders: 2,
                 camelCase: true,
-                sourceMap: true
+                sourceMap: true,
+                minimize: true
+              }
+            },
+            {
+              loader: require.resolve('postcss-loader'),
+              options: {
+                ident: 'postcss',
+                config: {
+                  ctx: {
+                    autoprefixer: {
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 10' // React doesn't support IE9 anyway
+                      ],
+                      flexbox: 'no-2009'
+                    }
+                  }
+                },
+                plugins: () => [
+                  require('postcss-flexbugs-fixes'),
+                  require('precss'),
+                  require('autoprefixer')
+                ]
+              }
+            },
+            {
+              loader: require.resolve('sass-loader'),
+              query: {
+                sourceMap: false
+              }
+            }
+          ]
+        })
+      },
+      {
+        test: regexpStyle,
+        include: paths.appGlobalStyles,
+        use: ExtractTextPlugin.extract({
+          fallback: {
+            loader: require.resolve('style-loader'),
+            options: {
+              hmr: false
+            }
+          },
+          use: [
+            {
+              loader: require.resolve('css-loader'),
+              options: {
+                modules: true,
+                importLoaders: 2,
+                camelCase: true,
+                sourceMap: true,
+                minimize: true
               }
             },
             {
