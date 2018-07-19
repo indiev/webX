@@ -3,12 +3,12 @@ import { Navbar, NavbarBrand, Logo, NavItems } from '~/components/Nav';
 
 const navList = [
   {
-    to: '/about',
-    key: 'About'
+    to: '/signup',
+    key: 'SignUp'
   },
   {
-    to: '/support',
-    key: 'Support'
+    to: '/SignIn',
+    key: 'SignIn'
   }
 ];
 

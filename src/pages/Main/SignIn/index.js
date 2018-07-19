@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Page } from '~/components/Page';
 
-class Support extends Component {
+class SignIn extends Component {
   render() {
-    return <Page>Support</Page>;
+    return <Page>SignIn</Page>;
   }
 }
 
-export default Support;
+export default SignIn;

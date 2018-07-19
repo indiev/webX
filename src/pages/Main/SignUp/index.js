@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Page } from '~/components/Page';
 
-class About extends Component {
+class SignUp extends Component {
   render() {
-    return <Page>About</Page>;
+    return <Page>SignUp</Page>;
   }
 }
 
-export default About;
+export default SignUp;
