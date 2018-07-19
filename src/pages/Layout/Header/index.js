@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import HeaderNavbar from './HeaderNavbar';
 
 class Header extends Component {
   render() {
-    return <header>{this.props.children}</header>;
+    return (
+      <header>
+        <HeaderNavbar />
+      </header>
+    );
   }
 }
 

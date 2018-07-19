@@ -1,24 +1,18 @@
 import React from 'react';
-import classNames from 'classnames/bind';
-
-import styles from './style.scss';
-
-import logo from '~/assets/images/logo/footer.svg';
-
-const cx = classNames.bind(styles);
+import { Image } from '~/components/Image';
 
 const Footer = () => {
   return (
-    <footer className={cx('footer')}>
-      <div className="container">
-        <img className={cx('logo')} src={logo} alt="logo" />
+    <footer className="py-4 text-right text-white bg-dark">
+      <div className="d-flex justify-content-between align-items-center container-fluid">
+        <Image src="logo/logo_white.svg" style={{ height: '3.5rem' }} />
         <div>
           <a
             className="d-block text-light"
-            href="mailto:support@bcventures.io"
-            title="support mail"
+            href="mailto:dev@bcventures.io"
+            title="dev mail"
           >
-            support@bcventures.io
+            dev@bcventures.io
           </a>
           <p className="m-0">Ⓒ 2018 GXC World Pte Ltd</p>
         </div>
