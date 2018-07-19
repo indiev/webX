@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- 10
+- 9
+cache:
+  yarn: true
+  directories:
+  - node_modules
+sudo: enabled
+install:
+- yarn
+script:
+- cp .env.example .env
+- yarn run test
+- yarn run build
+deploy:
+  provider: npm
+  email: admin@bcventures.io
+  on:
+    tags: true
+    repo: Game-X-Coin/webX.io
+    branch: master
