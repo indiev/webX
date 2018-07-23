@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
