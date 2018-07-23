@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button as BootstrapButton } from 'reactstrap';
 import ReactGA from 'react-ga';
-import { COMPONENT_COLOR } from '~/constants/constant';
+import { COMPONENT_COLOR } from '~/constants';
 
 class Button extends Component {
   onClick() {
