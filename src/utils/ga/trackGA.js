@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import GA from 'react-ga';
 
-import { GA_ID } from '~/constants';
-
-GA.initialize(GA_ID);
-
 const trackGA = WrappedComponent => {
   const trackPage = page => {
     GA.pageview(page.pathname + page.search);

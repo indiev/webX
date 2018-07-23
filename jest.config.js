@@ -3,6 +3,7 @@
 
 process.env.BABEL_ENV = 'test';
 process.env.NODE_ENV = 'test';
+process.env.PUBLIC_URL = '';
 
 module.exports = {
   // Modules can be explicitly auto-mocked using jest.mock(moduleName).
@@ -39,7 +40,14 @@ module.exports = {
 
   // coveragePathIgnorePatterns: // [array<string>]
   // coverageReporters: [], // [array<string>]
-  // coverageThreshold: {}, // [object]
+  coverageThreshold: {
+    global: {
+      statements: 98,
+      branches: 91,
+      functions: 98,
+      lines: 98
+    }
+  }, // [object]
 
   globals: {
     __DEV__: true
@@ -58,7 +66,7 @@ module.exports = {
   // like images or styles with a single module.
   moduleNameMapper: {
     '\\.(css|less|styl|scss|sass|sss)$': 'identity-obj-proxy',
-    '~(.*)$': '<rootDir>/src/$1'
+    '~/(.*)$': '<rootDir>/src/$1'
   },
 
   // modulePathIgnorePatterns: // [array<string>]
@@ -73,16 +81,19 @@ module.exports = {
   // resolver: // [string]
   // rootDir: // [string]
   // roots: // [array<string>]
-  setupFiles: [], // [array]
+  setupFiles: ['whatwg-fetch', 'raf/polyfill'], // [array]
   // setupTestFrameworkScriptFile: // [string]
   // snapshotSerializers: // [array<string>]
-  // testEnvironment: // [string]
-  // testMatch: // [array<string>]
+  // testEnvironment: 'node', // [string]
+  testMatch: [
+    '<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}',
+    '<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}'
+  ], // [array<string>]
   // testPathIgnorePatterns: // [array<string>]
   // testRegex: // [string]
   // testResultsProcessor: // [string]
   // testRunner: // [string]
-  // testURL: // [string]
+  testURL: 'http://localhost', // [string]
   // timers: // [string]
 
   transform: {
@@ -91,7 +102,7 @@ module.exports = {
       '<rootDir>/config/jest/fileTransform.js'
   },
 
-  // transformIgnorePatterns: // [array<string>]
+  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$'], // [array<string>]
   // unmockedModulePathPatterns: // [array<string>]
 
   verbose: true // [boolean]

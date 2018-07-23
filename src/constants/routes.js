@@ -7,13 +7,13 @@ export const routes = [
     component: importedComponent(() => import('~/pages/Main/Home'))
   },
   {
-    path: '/about',
+    path: '/signup',
     exact: true,
-    component: importedComponent(() => import('~/pages/Main/About'))
+    component: importedComponent(() => import('~/pages/Main/SignUp'))
   },
   {
-    path: '/support',
+    path: '/signin',
     exact: true,
-    component: importedComponent(() => import('~/pages/Main/Support'))
+    component: importedComponent(() => import('~/pages/Main/SignIn'))
   }
 ];

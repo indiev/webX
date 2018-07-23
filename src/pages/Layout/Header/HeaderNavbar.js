@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Logo, NavItems } from '~/components/Nav';
+import { Navbar, NavbarBrand, NavItems } from '~/components/Nav';
+import { Logo } from '~/components/Logo';
 
 const navList = [
   {
-    to: '/about',
-    key: 'About'
+    to: '/signup',
+    key: 'SignUp'
   },
   {
-    to: '/support',
-    key: 'Support'
+    to: '/SignIn',
+    key: 'SignIn'
   }
 ];
 

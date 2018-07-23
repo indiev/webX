@@ -9,6 +9,49 @@ process.env.NODE_ENV = 'development';
 
 const regexpStyle = /\.(css|less|styl|scss|sass|sss)$/;
 
+const cssModule = ({ modules = false }) => [
+  {
+    loader: require.resolve('css-loader'),
+    options: {
+      importLoaders: 2,
+      sourceMap: true,
+      camelCase: true,
+      modules,
+      localIdentName: '[name]-[local]-[hash:base64:5]'
+    }
+  },
+  {
+    loader: require.resolve('postcss-loader'),
+    options: {
+      ident: 'postcss',
+      config: {
+        ctx: {
+          autoprefixer: {
+            browsers: [
+              '>1%',
+              'last 4 versions',
+              'Firefox ESR',
+              'not ie < 10' // React doesn't support IE9 anyway
+            ],
+            flexbox: 'no-2009'
+          }
+        }
+      },
+      plugins: () => [
+        require('postcss-flexbugs-fixes'),
+        require('precss'),
+        require('autoprefixer')
+      ]
+    }
+  },
+  {
+    loader: require.resolve('sass-loader'),
+    options: {
+      sourceMap: true
+    }
+  }
+];
+
 module.exports = merge(common, {
   mode: 'development',
   bail: true,
@@ -36,95 +79,12 @@ module.exports = merge(common, {
       {
         test: regexpStyle,
         exclude: paths.appGlobalStyles,
-        use: [
-          require.resolve('style-loader'),
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 2,
-              sourceMap: true,
-              camelCase: true,
-              modules: true,
-              localIdentName: '[name]-[local]-[hash:base64:5]'
-            }
-          },
-          {
-            loader: require.resolve('postcss-loader'),
-            options: {
-              ident: 'postcss',
-              config: {
-                ctx: {
-                  autoprefixer: {
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 10' // React doesn't support IE9 anyway
-                    ],
-                    flexbox: 'no-2009'
-                  }
-                }
-              },
-              plugins: () => [
-                require('postcss-flexbugs-fixes'),
-                require('precss'),
-                require('autoprefixer')
-              ]
-            }
-          },
-          {
-            loader: require.resolve('sass-loader'),
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+        use: [require.resolve('style-loader'), ...cssModule({ modules: true })]
       },
       {
         test: regexpStyle,
         include: paths.appGlobalStyles,
-        use: [
-          require.resolve('style-loader'),
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 2,
-              sourceMap: true,
-              camelCase: true,
-              localIdentName: '[name]-[local]-[hash:base64:5]'
-            }
-          },
-          {
-            loader: require.resolve('postcss-loader'),
-            options: {
-              ident: 'postcss',
-              config: {
-                ctx: {
-                  autoprefixer: {
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 10' // React doesn't support IE9 anyway
-                    ],
-                    flexbox: 'no-2009'
-                  }
-                }
-              },
-              plugins: () => [
-                require('postcss-flexbugs-fixes'),
-                require('precss'),
-                require('autoprefixer')
-              ]
-            }
-          },
-          {
-            loader: require.resolve('sass-loader'),
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+        use: [require.resolve('style-loader'), ...cssModule({ modules: false })]
       }
     ]
   },

@@ -5,8 +5,8 @@ class Logo extends Component {
   render() {
     return (
       <Fragment>
-        <Image className="mr-1 logo" src="logo/logo_icon.svg" />
-        <Image className="logo-text" src="logo/logo_text.svg" />
+        <Image className="mr-1" src="logo/logo_icon.svg" />
+        <Image src="logo/logo_text.svg" />
       </Fragment>
     );
   }
