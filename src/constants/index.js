@@ -12,4 +12,17 @@ const COMPONENT_COLOR = {
   GRAY: 'secondary'
 };
 
-export { API_ENDPOINT, GA_ID, IMAGE_PATH, VIDEO_PATH, COMPONENT_COLOR };
+const VIEW_SIZE = {
+  SM: 'size-sm',
+  MD: 'size-md',
+  lg: 'size-lg'
+};
+
+export {
+  API_ENDPOINT,
+  GA_ID,
+  IMAGE_PATH,
+  VIDEO_PATH,
+  COMPONENT_COLOR,
+  VIEW_SIZE
+};
