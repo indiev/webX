@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Lato';
+  font-weight: 400;
+  src: local('Lato'),
+    url('../assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-weight: 700;
+  src: local('Lato Bold'),
+    url('../assets/fonts/Lato/Lato-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-weight: 200;
+  src: local('Lato Light'),
+    url('../assets/fonts/Lato/Lato-Light.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Lato', sans-serif !important;
+  color: #545454;
+}

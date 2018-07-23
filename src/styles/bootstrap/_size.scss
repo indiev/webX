@@ -1,0 +1,19 @@
+.size-sm {
+  width: 100%;
+  max-width: $modal-sm; // max-width: map-get($grid-breakpoints, 'sm');
+}
+
+.size-md {
+  width: 100%;
+  max-width: $modal-md; // max-width: map-get($grid-breakpoints, 'md');
+}
+
+.size-lg {
+  width: 100%;
+  max-width: $modal-lg; // max-width: map-get($grid-breakpoints, 'lg');
+}
+
+.size-xl {
+  width: 100%;
+  max-width: map-get($grid-breakpoints, 'xl');
+}
