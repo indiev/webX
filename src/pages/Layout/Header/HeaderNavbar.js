@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Logo, NavItems } from '~/components/Nav';
+import { Navbar, NavbarBrand, NavItems } from '~/components/Nav';
+import { Logo } from '~/components/Logo';
 
 const navList = [
   {

@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Page } from '~/components/Page';
+import { SignUp as SignUpForm } from '~/views/Form';
 
 class SignUp extends Component {
   render() {
-    return <Page>SignUp</Page>;
+    return (
+      <Page center>
+        <SignUpForm size="md" />
+      </Page>
+    );
   }
 }
 
