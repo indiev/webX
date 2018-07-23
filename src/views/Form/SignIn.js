@@ -3,18 +3,8 @@ import { Icon } from '~/components/Logo';
 import { Button } from '~/components/Button';
 import { Form, FormInput } from '~/components/Form';
 import { VIEW_SIZE } from '~/constants';
-import { UserService } from '~/services';
 
 class SignIn extends Component {
-  componentDidMount() {
-    this.getUserByUsername();
-  }
-  getUserByUsername() {
-    const userService = new UserService();
-    const result = userService.getByUsername('Bret');
-    console.log(result);
-  }
-
   render() {
     return (
       <Form
