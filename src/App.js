@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import GA from 'react-ga';
+import { withRouter, Switch, Route } from 'react-router-dom';
+
 import { Header, Main, Footer } from './pages/Layout';
+import routes from './routes';
 import trackGA from './utils/ga/trackGA';
 
-import { GA_ID } from '~/constants';
-
-GA.initialize(GA_ID);
+const Routes = () => (
+  <Switch>{routes.map((route, i) => <Route key={i} {...route} />)}</Switch>
+);
 
 @withRouter
 @trackGA
@@ -15,7 +16,9 @@ class App extends Component {
     return (
       <div id="app">
         <Header />
-        <Main />
+        <Main>
+          <Routes />
+        </Main>
         <Footer />
       </div>
     );
