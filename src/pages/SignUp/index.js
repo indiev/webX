@@ -5,8 +5,10 @@ import { SignUp as SignUpForm } from '~/views/Form';
 class SignUp extends Component {
   render() {
     return (
-      <Page center>
-        <SignUpForm size="md" />
+      <Page>
+        <div className="d-flex justify-content-center">
+          <SignUpForm size="md" />
+        </div>
       </Page>
     );
   }
