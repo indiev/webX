@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { Button as BootstrapButton } from 'reactstrap';
 import ReactGA from 'react-ga';
+
 import { COMPONENT_COLOR } from '~/constants';
 
 class Button extends Component {
-  onClick() {
-    const { children, tag: Tag, href, onClick } = this.props;
-
+  handleClick(e) {
+    const { children, onClick } = this.props;
     const label = typeof children === 'string' ? children : '';
-    const type = href && Tag === 'a' ? 'anchor' : 'button';
 
-    ReactGA.ga('send', 'event', 'click', type, label);
     if (onClick) {
-      onClick();
+      ReactGA.ga('send', 'event', 'click', 'button', label);
+      onClick(e);
     }
   }
 
@@ -25,7 +24,7 @@ class Button extends Component {
     return (
       <BootstrapButton
         color={buttonColor}
-        onClick={() => this.onClick}
+        onClick={this.handleClick.bind(this)}
         {...props}
       />
     );
