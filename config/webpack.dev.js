@@ -61,18 +61,15 @@ module.exports = merge(common, {
     hot: true,
     contentBase: paths.appPublic,
     watchContentBase: true,
-    compress: true,
     watchOptions: {
       ignored: ignoredFiles(paths.appSrc)
     },
-    // https: true,
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     publicPath: '/',
     historyApiFallback: true,
     disableHostCheck: true,
-    overlay: false
-    // open: true
+    clientLogLevel: 'warning'
   },
   module: {
     rules: [
