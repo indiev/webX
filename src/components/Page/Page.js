@@ -3,14 +3,11 @@ import classnames from 'classnames';
 
 class Page extends Component {
   render() {
-    const { className, center, ...props } = this.props;
-    const classes = classnames(
-      className,
-      `container-fluid d-flex align-items-center${
-        center ? ' justify-content-center' : ''
-      }`
+    const { className, ...props } = this.props;
+
+    return (
+      <div className={classnames(className, 'container-fluid')} {...props} />
     );
-    return <div className={classes} {...props} />;
   }
 }
 
