@@ -9,8 +9,9 @@ class Button extends Component {
     const { children, onClick } = this.props;
     const label = typeof children === 'string' ? children : '';
 
+    ReactGA.ga('send', 'event', 'click', 'button', label);
+
     if (onClick) {
-      ReactGA.ga('send', 'event', 'click', 'button', label);
       onClick(e);
     }
   }
