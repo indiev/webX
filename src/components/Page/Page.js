@@ -3,10 +3,20 @@ import classnames from 'classnames';
 
 class Page extends Component {
   render() {
-    const { className, ...props } = this.props;
+    const { className, row, center, verticalCenter, ...props } = this.props;
 
     return (
-      <div className={classnames(className, 'container-fluid')} {...props} />
+      <div
+        className={classnames(
+          className,
+          'container-fluid',
+          'd-flex flex-fill',
+          row ? 'flex-row' : 'flex-column',
+          center && 'align-items-center',
+          verticalCenter && 'justify-content-center'
+        )}
+        {...props}
+      />
     );
   }
 }
