@@ -32,7 +32,6 @@ module.exports = merge(common, {
                 modules: true,
                 importLoaders: 2,
                 camelCase: true,
-                sourceMap: true,
                 minimize: true
               }
             },

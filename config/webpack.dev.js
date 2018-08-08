@@ -14,7 +14,6 @@ const cssModule = ({ modules = false }) => [
     loader: require.resolve('css-loader'),
     options: {
       importLoaders: 2,
-      sourceMap: true,
       camelCase: true,
       modules,
       localIdentName: '[name]-[local]-[hash:base64:5]'
@@ -61,18 +60,15 @@ module.exports = merge(common, {
     hot: true,
     contentBase: paths.appPublic,
     watchContentBase: true,
-    compress: true,
     watchOptions: {
       ignored: ignoredFiles(paths.appSrc)
     },
-    // https: true,
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 3000,
     publicPath: '/',
     historyApiFallback: true,
     disableHostCheck: true,
-    overlay: false
-    // open: true
+    clientLogLevel: 'warning'
   },
   module: {
     rules: [

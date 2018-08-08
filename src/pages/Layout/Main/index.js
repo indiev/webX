@@ -4,7 +4,7 @@ import Routes from './Routes';
 class Main extends Component {
   render() {
     return (
-      <main className="flex-fill d-flex align-items-center" role="main">
+      <main className="d-flex flex-colum flex-fill" role="main">
         <Routes />
       </main>
     );
