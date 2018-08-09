@@ -1,4 +1,4 @@
-const API_ENDPOINT = process.env.API_ENDPOINT || 'localhost';
+const API_ENDPOINT = process.env.API_ENDPOINT || 'http://localhost:8000';
 const GA_ID = process.env.GA_ID || '';
 
 const IMAGE_PATH = 'assets/images';
