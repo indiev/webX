@@ -54,11 +54,11 @@ class UserStore {
   }
 
   @action
-  register({ email, account, password }) {
+  register({ username, email, password }) {
     return this.userService
       .register({
+        username,
         email,
-        account,
         password
       })
       .then(({ token }) => this.setToken(token.accessToken))

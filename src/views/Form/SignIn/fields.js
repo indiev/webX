@@ -1,28 +1,20 @@
-const fields = [
-  {
+const fields = {
+  email: {
     type: 'email',
     name: 'email',
-    rules: {
-      required: true,
-      maxLength: 50
-    },
-    options: {
-      autoFocus: true
-    }
+    required: true,
+    maxLength: 50,
+    autoFocus: true
   },
-  {
+  password: {
     type: 'password',
     name: 'password',
-    rules: {
-      required: true,
-      minLength: 8,
-      pattern: '(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*s).*$',
-      title: 'lower case, upper case, digit'
-    },
-    options: {
-      autoComplete: 'current-password'
-    }
+    required: true,
+    minLength: 8,
+    pattern: '(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*s).*$',
+    title: 'lower case, upper case, digit',
+    autoComplete: 'current-password'
   }
-];
+};
 
 export default fields;

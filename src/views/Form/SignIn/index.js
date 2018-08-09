@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
+import { observable } from 'mobx';
+import { observer, inject } from 'mobx-react';
+
 import { Icon } from '~/components/Logo';
 import { Button } from '~/components/Button';
 import { Form, FormInput } from '~/components/Form';
+
 import { VIEW_SIZE } from '~/constants';
-import { UserService } from '~/services';
+
 import fields from './fields';
 
-class SignIn extends Component {
-  componentDidMount() {
-    this.getUserByUsername();
+@inject('UserStore')
+@observer
+class Login extends Component {
+  @observable
+  email = '';
+
+  @observable
+  password = '';
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.props.UserStore.login({
+      email: this.email,
+      password: this.password
+    });
   }
-  getUserByUsername() {
-    const userService = new UserService();
-    const result = userService.getByUsername('Bret');
-    console.log(result);
-  }
+
+  handleChange = name => e => {
+    this[name] = e.target.value;
+  };
 
   render() {
     return (
@@ -24,25 +40,28 @@ class SignIn extends Component {
             ? VIEW_SIZE[this.props.size.toUpperCase()]
             : VIEW_SIZE.MD
         }
+        onSubmit={this.handleSubmit.bind(this)}
       >
         <div className="text-center mb-3">
           <Icon style={{ height: '4rem' }} />
         </div>
-        <h3 className="mb-3 text-center font-weight-bold">Sign In</h3>
-        {fields.map(field => (
-          <FormInput
-            type={field.type}
-            name={field.name}
-            {...field.options}
-            {...field.rules}
-          />
-        ))}
-        <Button color="blue" block>
-          Sign In
+        <h3 className="mb-3 text-center font-weight-bold">Login</h3>
+        <FormInput
+          {...fields.email}
+          value={this.email}
+          onChange={this.handleChange('email')}
+        />
+        <FormInput
+          {...fields.password}
+          value={this.password}
+          onChange={this.handleChange('password')}
+        />
+        <Button type="submit" color="blue" block>
+          Login
         </Button>
       </Form>
     );
   }
 }
 
-export default SignIn;
+export default Login;
