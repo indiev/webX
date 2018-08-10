@@ -68,6 +68,7 @@
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "circular-dependency-plugin": "^5.0.2",
     "classnames": "^2.2.6",
+    "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "directory-named-webpack-plugin": "^4.0.0",
     "dotenv": "^6.0.0",

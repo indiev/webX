@@ -1,4 +1,5 @@
 const merge = require('webpack-merge');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -125,6 +126,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([{ from: paths.appPublic, to: paths.appBuild }]),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
