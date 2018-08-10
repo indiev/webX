@@ -1,7 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -159,7 +157,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([paths.appBuild]),
     new webpack.NamedModulesPlugin(),
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/, // exclude node_modules

@@ -9,7 +9,7 @@
     "stylelint-check": "stylelint-config-prettier-check",
     "test": "jest",
     "start": "webpack-dev-server --progress --config config/webpack.dev.js",
-    "build": "webpack --progress --config config/webpack.prod.js"
+    "build": "rimraf ./build && webpack --progress --config config/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -68,7 +68,6 @@
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "circular-dependency-plugin": "^5.0.2",
     "classnames": "^2.2.6",
-    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "directory-named-webpack-plugin": "^4.0.0",
     "dotenv": "^6.0.0",
@@ -98,6 +97,7 @@
     "react-hot-loader": "^4.3.3",
     "react-imported-component": "^4.6.2",
     "reactstrap": "^6.3.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "stylelint": "^9.3.0",
