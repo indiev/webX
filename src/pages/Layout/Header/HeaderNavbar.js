@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavItems } from '~/components/Nav';
 import { Logo } from '~/components/Logo';
+import Auth from '~/views/Auth';
 
 const navList = [
   {
@@ -21,6 +22,10 @@ class HeaderNavbar extends Component {
           <Logo />
         </NavbarBrand>
         <NavItems navList={navList} />
+        <Auth
+          renderSignedOut={() => 'signed out'}
+          renderSignedIn={user => user.email}
+        />
       </Navbar>
     );
   }
