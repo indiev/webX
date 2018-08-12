@@ -1,9 +1,10 @@
 import axios from 'axios';
 
+import UserStore from '~/stores/UserStore';
 import { API_ENDPOINT } from '~/constants';
 
 const defaultHeaders = () => ({
-  // authorization: `Bearer ${token}`
+  authorization: `Bearer ${UserStore.token}`
 });
 
 const defaultOptions = {

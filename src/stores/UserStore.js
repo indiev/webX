@@ -11,7 +11,7 @@ class UserStore {
   token = localStorage.getItem('jwt');
 
   @observable
-  currentUser = null;
+  currentUser = {};
 
   @action
   setToken(token) {
@@ -24,45 +24,51 @@ class UserStore {
   }
 
   @action
+  setUser(user = {}) {
+    this.currentUser = user;
+  }
+
+  @action
   async pullUser() {
-    const { user } = await this.userService.getCurrentUser();
-
-    action(() => {
-      this.currentUser = user;
-    });
+    try {
+      const user = await this.userService.getCurrentUser();
+      this.setUser(user);
+    } catch (error) {
+      // when token expired
+      this.signout();
+    }
   }
 
   @action
-  forgetUser() {
-    this.currentUser = null;
-  }
-
-  @action
-  login({ email, password }) {
+  signin({ email, password }) {
     return this.userService
-      .login({ email, password })
-      .then(({ token }) => this.setToken(token))
-      .then(() => this.pullUser());
+      .signin({ email, password })
+      .then(({ user, token }) => {
+        this.setUser(user);
+        this.setToken(token.accessToken);
+      });
   }
 
   @action
-  logout() {
+  signout() {
     this.setToken(null);
-    this.forgetUser();
+    this.setUser(null);
 
     return Promise.resolve();
   }
 
   @action
-  register({ username, email, password }) {
+  signup({ username, email, password }) {
     return this.userService
-      .register({
+      .signup({
         username,
         email,
         password
       })
-      .then(({ token }) => this.setToken(token.accessToken))
-      .then(() => this.pullUser());
+      .then(({ user, token }) => {
+        this.setUser(user);
+        this.setToken(token.accessToken);
+      });
   }
 }
 
