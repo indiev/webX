@@ -41,7 +41,9 @@
   "pre-commit": "lint:staged",
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.1",
+    "core-js": "^2.5.7",
     "mobx": "^4.2.0",
     "mobx-react": "^5.2.3",
     "react": "^16.4.1",
