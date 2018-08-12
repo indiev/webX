@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
@@ -10,22 +11,25 @@ import { VIEW_SIZE } from '~/constants';
 
 import fields from './fields';
 
+@withRouter
 @inject('UserStore')
 @observer
-class Login extends Component {
+class SignIn extends Component {
   @observable
   email = '';
 
   @observable
   password = '';
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
 
-    this.props.UserStore.login({
+    await this.props.UserStore.signin({
       email: this.email,
       password: this.password
     });
+
+    this.props.history.push('/');
   }
 
   handleChange = name => e => {
@@ -45,7 +49,7 @@ class Login extends Component {
         <div className="text-center mb-3">
           <Icon style={{ height: '4rem' }} />
         </div>
-        <h3 className="mb-3 text-center font-weight-bold">Login</h3>
+        <h3 className="mb-3 text-center font-weight-bold">Sign in</h3>
         <FormInput
           {...fields.email}
           value={this.email}
@@ -57,11 +61,14 @@ class Login extends Component {
           onChange={this.handleChange('password')}
         />
         <Button type="submit" color="blue" block>
-          Login
+          Sign in
         </Button>
+        <p className="mt-3">
+          Don't have an account? <Link to="/signup">Sign up</Link>
+        </p>
       </Form>
     );
   }
 }
 
-export default Login;
+export default SignIn;

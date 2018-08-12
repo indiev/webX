@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
@@ -10,6 +11,7 @@ import { VIEW_SIZE } from '~/constants';
 
 import fields from './fields';
 
+@withRouter
 @inject('UserStore')
 @observer
 class SignUp extends Component {
@@ -22,14 +24,16 @@ class SignUp extends Component {
   @observable
   password = '';
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
 
-    this.props.UserStore.register({
+    await this.props.UserStore.signup({
       username: this.username,
       email: this.email,
       password: this.password
     });
+
+    this.props.history.push('/');
   }
 
   handleChange = name => e => {
@@ -49,7 +53,7 @@ class SignUp extends Component {
         <div className="text-center mb-3">
           <Icon style={{ height: '4rem' }} />
         </div>
-        <h3 className="mb-3 text-center font-weight-bold">Register</h3>
+        <h3 className="mb-3 text-center font-weight-bold">Sign up</h3>
         <FormInput
           {...fields.username}
           value={this.username}
@@ -66,8 +70,11 @@ class SignUp extends Component {
           onChange={this.handleChange('password')}
         />
         <Button type="submit" color="blue" block>
-          Register
+          Sign up
         </Button>
+        <p className="mt-3">
+          Already have an account? <Link to="/signin">Sign in</Link>
+        </p>
       </Form>
     );
   }

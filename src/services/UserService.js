@@ -1,9 +1,8 @@
-import { API_ENDPOINT } from '~/constants';
 import request from '~/utils/request';
 
 class UserService {
   constructor() {
-    this.url = `${API_ENDPOINT}/users`;
+    this.url = '/users';
   }
 
   async getByUsername(username) {
@@ -12,11 +11,10 @@ class UserService {
   }
 
   async getCurrentUser() {
-    const { user } = await request({ url: `${this.url}/profile` });
-    return user;
+    return await request({ url: `${this.url}/profile` });
   }
 
-  async login(data) {
+  async signin(data) {
     return await request({
       url: `${this.url}/login`,
       method: 'post',
@@ -24,7 +22,7 @@ class UserService {
     });
   }
 
-  async register(data) {
+  async signup(data) {
     return await request({
       url: `${this.url}/register`,
       method: 'post',
