@@ -5,7 +5,7 @@ import { SignUp as SignUpForm } from '~/views/Form';
 class SignUp extends Component {
   render() {
     return (
-      <Page center>
+      <Page center verticalCenter>
         <SignUpForm size="md" />
       </Page>
     );
