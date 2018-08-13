@@ -23,20 +23,20 @@ class SignIn extends Component {
           <Icon style={{ height: '4rem' }} />
         </div>
         <h3 className="mb-3 text-center">
-          <Trans i18nKey="signin.title">
+          <Trans i18nKey="signIn.title">
             <strong>GXC</strong>
           </Trans>
         </h3>
         <FormInput
           type="email"
-          name={t('signin.email')}
+          name={t('signIn.email')}
           maxLength="50"
           required
           autoFocus
         />
         <FormInput
           type="password"
-          name={t('signin.password')}
+          name={t('signIn.password')}
           autoComplete="current-password"
           minLength="8"
           required
@@ -44,7 +44,7 @@ class SignIn extends Component {
           title="lower case, upper case, digit"
         />
         <Button color="blue" block>
-          {t('signin.submit')}
+          {t('signIn.submit')}
         </Button>
       </Form>
     );

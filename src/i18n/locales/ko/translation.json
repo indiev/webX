@@ -1,18 +1,18 @@
 {
   "nav": {
-    "signin": "로그인",
-    "signout": "로그아웃",
-    "signup": "가입하기"
+    "signIn": "로그인",
+    "signOut": "로그아웃",
+    "signUp": "가입하기"
   },
 
-  "signin": {
+  "signIn": {
     "title": "<0>GXC</0>에 로그인",
     "email": "이메일",
     "password": "비밀번호",
     "submit": "로그인"
   },
 
-  "signup": {
+  "signUp": {
     "title": "<0>GXC</0>에 가입하기",
     "email": "이메일",
     "username": "사용자 이름",

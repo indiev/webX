@@ -22,11 +22,11 @@ class Navbar extends Component {
     const navList = [
       {
         to: '/signup',
-        key: t('nav.signup')
+        key: t('nav.signUp')
       },
       {
         to: '/signin',
-        key: t('nav.signin')
+        key: t('nav.signIn')
       }
     ];
 
