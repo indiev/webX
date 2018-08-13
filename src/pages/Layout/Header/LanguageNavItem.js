@@ -3,7 +3,9 @@ import { translate } from 'react-i18next';
 import classNames from 'classnames/bind';
 
 import i18n from '~/i18n';
+import { LANGUAGES } from '~/constants';
 import { NavItem } from '~/components/Nav';
+
 import styles from './LanguageNavItem.scss';
 
 const cx = classNames.bind(styles);
@@ -16,20 +18,16 @@ class LanguageNavItem extends Component {
 
   render() {
     const { language: currentLang } = this.props.i18n;
-    const supportedLangs = {
-      en: 'EN',
-      ko: 'KR'
-    };
 
     return (
       <div className={cx('languageNavItem', 'ml-3 pl-3 font-weight-bold')}>
-        {Object.keys(supportedLangs).map(key => (
+        {Object.keys(LANGUAGES).map(key => (
           <NavItem
             key={key}
             className={cx(key === currentLang && 'active')}
             onClick={() => this.changeLanguage(key)}
           >
-            {supportedLangs[key]}
+            {LANGUAGES[key]}
           </NavItem>
         ))}
       </div>
