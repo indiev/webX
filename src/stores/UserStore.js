@@ -1,6 +1,7 @@
 import { observable, action } from 'mobx';
 
 import UserService from '~/services/UserService';
+import { ACCESS_TOKEN } from '~/constants';
 
 class UserStore {
   constructor() {
@@ -8,7 +9,7 @@ class UserStore {
   }
 
   @observable
-  token = localStorage.getItem('jwt');
+  token = localStorage.getItem(ACCESS_TOKEN);
 
   @observable
   currentUser = {};
@@ -16,9 +17,9 @@ class UserStore {
   @action
   setToken(token) {
     if (token) {
-      localStorage.setItem('jwt', token);
+      localStorage.setItem(ACCESS_TOKEN, token);
     } else {
-      localStorage.removeItem('jwt');
+      localStorage.removeItem(ACCESS_TOKEN);
     }
     this.token = token;
   }

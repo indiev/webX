@@ -1,4 +1,4 @@
-const API_ENDPOINT = process.env.API_ENDPOINT || 'http://localhost:8000';
+const API_ENDPOINT = process.env.API_ENDPOINT || 'localhost';
 const GA_ID = process.env.GA_ID || '';
 
 const IMAGE_PATH = 'assets/images';
@@ -18,11 +18,14 @@ const VIEW_SIZE = {
   lg: 'size-lg'
 };
 
+const ACCESS_TOKEN = 'jwt';
+
 export {
   API_ENDPOINT,
   GA_ID,
   IMAGE_PATH,
   VIDEO_PATH,
   COMPONENT_COLOR,
-  VIEW_SIZE
+  VIEW_SIZE,
+  ACCESS_TOKEN
 };
