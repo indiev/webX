@@ -24,7 +24,7 @@ class SignIn extends Component {
   async handleSubmit(e) {
     e.preventDefault();
 
-    await this.props.UserStore.signin({
+    await this.props.UserStore.signIn({
       email: this.email,
       password: this.password
     });

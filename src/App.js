@@ -16,7 +16,7 @@ class App extends Component {
   async componentDidMount() {
     try {
       if (this.props.UserStore.token) {
-        await this.props.UserStore.pullUser();
+        await this.props.UserStore.getCurrentUser();
       }
     } finally {
       this.loaded = true;

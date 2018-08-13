@@ -14,7 +14,7 @@ class UserService {
     return await request({ url: `${this.url}/profile` });
   }
 
-  async signin(data) {
+  async signIn(data) {
     return await request({
       url: `${this.url}/login`,
       method: 'post',
@@ -22,7 +22,7 @@ class UserService {
     });
   }
 
-  async signup(data) {
+  async signUp(data) {
     return await request({
       url: `${this.url}/register`,
       method: 'post',

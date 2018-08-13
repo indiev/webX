@@ -29,7 +29,7 @@ class UserStore {
   }
 
   @action
-  async pullUser() {
+  async getCurrentUser() {
     try {
       const user = await this.userService.getCurrentUser();
       this.setUser(user);
@@ -40,9 +40,9 @@ class UserStore {
   }
 
   @action
-  signin({ email, password }) {
+  signIn({ email, password }) {
     return this.userService
-      .signin({ email, password })
+      .signIn({ email, password })
       .then(({ user, token }) => {
         this.setUser(user);
         this.setToken(token.accessToken);
@@ -50,7 +50,7 @@ class UserStore {
   }
 
   @action
-  signout() {
+  signOut() {
     this.setToken(null);
     this.setUser(null);
 
@@ -58,9 +58,9 @@ class UserStore {
   }
 
   @action
-  signup({ username, email, password }) {
+  signUp({ username, email, password }) {
     return this.userService
-      .signup({
+      .signUp({
         username,
         email,
         password
