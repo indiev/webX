@@ -1,16 +1,20 @@
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const common = require('./webpack.common');
 const paths = require('./paths');
 
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[hash:8].css',
+      chunkFilename: 'static/css/[name].[hash:8].chunk.css'
+    }),
     new CopyWebpackPlugin([{ from: paths.appPublic, to: paths.appBuild }]),
     new HtmlWebpackPlugin({
       inject: true,
@@ -29,7 +33,7 @@ module.exports = merge(common, {
         minifyURLs: true
       }
     }),
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
   optimization: {
     runtimeChunk: true,

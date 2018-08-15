@@ -227,10 +227,6 @@ module.exports = {
       syntax: 'scss',
       failOnError: false
     }),
-    new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[hash:8].css',
-      chunkFilename: 'static/css/[name].[hash:8].chunk.css'
-    }),
     new webpack.ProvidePlugin({})
   ]
 };
