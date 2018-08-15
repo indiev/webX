@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavItems } from '~/components/Nav';
 import { Logo } from '~/components/Logo';
-import Auth from '~/views/Auth';
+import withAuth from '~/utils/auth/withAuth';
 
 const navList = [
   {
@@ -14,18 +14,18 @@ const navList = [
   }
 ];
 
+@withAuth
 class HeaderNavbar extends Component {
   render() {
+    const { isSignIn, currentUser } = this.props.auth;
+
     return (
       <Navbar color="light" light expand>
         <NavbarBrand>
           <Logo />
         </NavbarBrand>
         <NavItems navList={navList} />
-        <Auth
-          renderSignedOut={() => 'signed out'}
-          renderSignedIn={user => user.email}
-        />
+        {isSignIn ? JSON.stringify(currentUser) : 'not signed in'}
       </Navbar>
     );
   }
