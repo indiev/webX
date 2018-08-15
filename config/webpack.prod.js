@@ -32,13 +32,11 @@ module.exports = merge(common, {
         minifyCSS: true,
         minifyURLs: true
       }
-    }),
+    })
     // new BundleAnalyzerPlugin()
   ],
   optimization: {
     runtimeChunk: true,
-    removeEmptyChunks: true,
-    mergeDuplicateChunks: true,
     splitChunks: {
       minSize: 100000,
       maxSize: 300000,
