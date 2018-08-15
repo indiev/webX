@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { translate, Trans } from 'react-i18next';
+
 import { Icon } from '~/components/Logo';
 import { Button } from '~/components/Button';
 import { Form, FormInput } from '~/components/Form';
 import { VIEW_SIZE } from '~/constants';
 
+@translate()
 class SignUp extends Component {
   render() {
+    const { t } = this.props;
+
     return (
       <Form
         className={
@@ -17,17 +22,21 @@ class SignUp extends Component {
         <div className="text-center mb-3">
           <Icon style={{ height: '4rem' }} />
         </div>
-        <h3 className="mb-3 text-center font-weight-bold">Sign Up</h3>
+        <h3 className="mb-3 text-center">
+          <Trans i18nKey="signUp.title">
+            <strong>GXC</strong>
+          </Trans>
+        </h3>
         <FormInput
           type="email"
-          name="email"
+          name={t('signUp.email')}
           maxLength="50"
           required
           autoFocus
         />
         <FormInput
           type="text"
-          name="username"
+          name={t('signUp.username')}
           minLength="4"
           maxLength="20"
           required
@@ -36,7 +45,7 @@ class SignUp extends Component {
         />
         <FormInput
           type="password"
-          name="password"
+          name={t('signUp.password')}
           autoComplete="new-password"
           minLength="8"
           required
@@ -44,7 +53,7 @@ class SignUp extends Component {
           title="lower case, upper case, digit"
         />
         <Button type="submit" color="blue" block>
-          Sign Up
+          {t('signUp.submit')}
         </Button>
       </Form>
     );
