@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signUp": "Sign up"
+  },
+
+  "signIn": {
+    "title": "Sign in to <0>GXC</0>",
+    "email": "email",
+    "password": "password",
+    "submit": "Sign in",
+    "wantSignUp": "Don't have an account? <0>Sign up</0>"
+  },
+
+  "signUp": {
+    "title": "Sign up to <0>GXC</0>",
+    "email": "email",
+    "username": "username",
+    "password": "password",
+    "submit": "Sign up",
+    "wantSignIn": "Already have an account? <0>Sign in</0>"
+  }
+}

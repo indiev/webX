@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
+import { translate, Trans } from 'react-i18next';
 
 import { Icon } from '~/components/Logo';
 import { Button } from '~/components/Button';
@@ -12,6 +13,7 @@ import { VIEW_SIZE } from '~/constants';
 import fields from './fields';
 
 @withRouter
+@translate()
 @inject('UserStore')
 @observer
 class SignIn extends Component {
@@ -37,6 +39,8 @@ class SignIn extends Component {
   };
 
   render() {
+    const { t } = this.props;
+
     return (
       <Form
         className={
@@ -49,7 +53,11 @@ class SignIn extends Component {
         <div className="text-center mb-3">
           <Icon style={{ height: '4rem' }} />
         </div>
-        <h3 className="mb-3 text-center font-weight-bold">Sign in</h3>
+        <h3 className="mb-3 text-center">
+          <Trans i18nKey="signIn.title">
+            <strong>GXC</strong>
+          </Trans>
+        </h3>
         <FormInput
           {...fields.email}
           value={this.email}
@@ -61,10 +69,12 @@ class SignIn extends Component {
           onChange={this.handleChange('password')}
         />
         <Button type="submit" color="blue" block>
-          Sign in
+          {t('signIn.submit')}
         </Button>
         <p className="mt-3">
-          Don't have an account? <Link to="/signup">Sign up</Link>
+          <Trans i18nKey="signIn.wantSignUp">
+            <Link to="/signup">Sign up</Link>
+          </Trans>
         </p>
       </Form>
     );
