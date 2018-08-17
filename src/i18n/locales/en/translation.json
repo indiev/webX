@@ -9,7 +9,8 @@
     "title": "Sign in to <0>GXC</0>",
     "email": "email",
     "password": "password",
-    "submit": "Sign in"
+    "submit": "Sign in",
+    "wantSignUp": "Don't have an account? <0>Sign up</0>"
   },
 
   "signUp": {
@@ -17,6 +18,7 @@
     "email": "email",
     "username": "username",
     "password": "password",
-    "submit": "Sign up"
+    "submit": "Sign up",
+    "wantSignIn": "Already have an account? <0>Sign in</0>"
   }
 }

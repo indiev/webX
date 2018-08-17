@@ -8,27 +8,29 @@ import {
   Nav,
   NavItem
 } from '~/components/Nav';
+import withAuth from '~/utils/auth/withAuth';
 import { Logo } from '~/components/Logo';
 import LanguageNavItem from './LanguageNavItem';
 import styles from './Navbar.scss';
 
 const cx = classNames.bind(styles);
 
+@withAuth
 @translate()
 class Navbar extends Component {
   render() {
+    const { isSignIn, currentUser } = this.props.auth;
     const { t } = this.props;
 
-    const navList = [
-      {
-        to: '/signup',
-        key: t('nav.signUp')
-      },
-      {
-        to: '/signin',
-        key: t('nav.signIn')
-      }
-    ];
+    const AuthNavItem = () =>
+      isSignIn ? (
+        <NavItem>{currentUser.email}</NavItem>
+      ) : (
+        <React.Fragment>
+          <NavItem to="/signup">{t('nav.signUp')}</NavItem>
+          <NavItem to="/signin">{t('nav.signIn')}</NavItem>
+        </React.Fragment>
+      );
 
     return (
       <BootstrapNavbar className={cx('navbar', 'border-bottom')} light expand>
@@ -36,9 +38,7 @@ class Navbar extends Component {
           <Logo />
         </NavbarBrand>
         <Nav className="ml-auto" horizontal="horizontal" navbar>
-          {navList.map(nav => (
-            <NavItem {...nav}>{nav.key}</NavItem>
-          ))}
+          <AuthNavItem />
           <LanguageNavItem />
         </Nav>
       </BootstrapNavbar>

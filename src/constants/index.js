@@ -23,6 +23,8 @@ const VIEW_SIZE = {
   lg: 'size-lg'
 };
 
+const ACCESS_TOKEN = 'jwt';
+
 export {
   API_ENDPOINT,
   GA_ID,
@@ -30,5 +32,6 @@ export {
   VIDEO_PATH,
   LANGUAGES,
   COMPONENT_COLOR,
-  VIEW_SIZE
+  VIEW_SIZE,
+  ACCESS_TOKEN
 };

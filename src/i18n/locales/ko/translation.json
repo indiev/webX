@@ -9,7 +9,8 @@
     "title": "<0>GXC</0>에 로그인",
     "email": "이메일",
     "password": "비밀번호",
-    "submit": "로그인"
+    "submit": "로그인",
+    "wantSignUp": "아직 가입하지 않으셨나요? <0>가입하기</0>"
   },
 
   "signUp": {
@@ -17,6 +18,7 @@
     "email": "이메일",
     "username": "사용자 이름",
     "password": "비밀번호",
-    "submit": "가입하기"
+    "submit": "가입하기",
+    "wantSignIn": "이미 가입하셨나요? <0>로그인</0>"
   }
 }
