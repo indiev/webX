@@ -3,23 +3,26 @@ import ReactGA from 'react-ga';
 
 class A extends Component {
   handleClick() {
-    const { to = '' } = this.props;
-    ReactGA.ga('send', 'event', 'anchor', 'link', to || '');
+    ReactGA.ga('send', 'event', 'anchor', 'link', this.props.href || '');
+
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
   }
 
   render() {
     const { to, children, title, ...props } = this.props;
     let anchorTitle = title;
+
     if (typeof children === 'string') {
       anchorTitle = children;
     }
 
     return (
       <a
-        onClick={this.handleClick.bind(this)}
-        title={anchorTitle}
         rel="noopener noreferrer"
-        href={to}
+        title={anchorTitle}
+        onClick={this.handleClick.bind(this)}
         {...props}
       >
         {children}

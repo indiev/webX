@@ -4,6 +4,11 @@ const GA_ID = process.env.GA_ID || '';
 const IMAGE_PATH = 'assets/images';
 const VIDEO_PATH = 'assets/videos';
 
+const LANGUAGES = {
+  en: 'EN',
+  ko: 'KR'
+};
+
 const COMPONENT_COLOR = {
   BLUE: 'primary',
   GREEN: 'success',
@@ -18,11 +23,15 @@ const VIEW_SIZE = {
   lg: 'size-lg'
 };
 
+const ACCESS_TOKEN = 'jwt';
+
 export {
   API_ENDPOINT,
   GA_ID,
   IMAGE_PATH,
   VIDEO_PATH,
+  LANGUAGES,
   COMPONENT_COLOR,
-  VIEW_SIZE
+  VIEW_SIZE,
+  ACCESS_TOKEN
 };

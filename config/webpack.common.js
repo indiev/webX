@@ -1,18 +1,58 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 const dotenv = require('dotenv');
 const paths = require('./paths');
 
 dotenv.config({ path: paths.dotenv });
+
+const isProd = process.env.NODE_ENV === 'production';
+
+const cssModule = ({ modules = false }) => [
+  isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+  {
+    loader: require.resolve('css-loader'),
+    options: {
+      importLoaders: 2,
+      camelCase: true,
+      minimize: true,
+      modules,
+      localIdentName: '[local]-[hash:base64:5]'
+    }
+  },
+  {
+    loader: require.resolve('postcss-loader'),
+    options: {
+      ident: 'postcss',
+      plugins: () => [
+        require('postcss-flexbugs-fixes'),
+        require('precss'),
+        require('autoprefixer')({
+          browsers: [
+            '>1%',
+            'last 4 versions',
+            'Firefox ESR',
+            'not ie < 10' // React doesn't support IE9 anyway
+          ],
+          flexbox: 'no-2009'
+        })
+      ]
+    }
+  },
+  {
+    loader: require.resolve('sass-loader'),
+    options: {
+      sourceMap: true
+    }
+  }
+];
 
 module.exports = {
   target: 'web',
@@ -70,6 +110,16 @@ module.exports = {
         options: {
           cacheDirectory: true
         }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        exclude: paths.appGlobalStyles,
+        use: cssModule({ modules: true })
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        include: paths.appGlobalStyles,
+        use: cssModule({ modules: false })
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -159,7 +209,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([paths.appBuild]),
     new webpack.NamedModulesPlugin(),
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/, // exclude node_modules
@@ -178,26 +227,6 @@ module.exports = {
       syntax: 'scss',
       failOnError: false
     }),
-    new webpack.ProvidePlugin({}),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.BABEL_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
-  ],
-  optimization: {
-    runtimeChunk: 'single',
-    removeEmptyChunks: true,
-    mergeDuplicateChunks: true,
-    providedExports: true,
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  }
+    new webpack.ProvidePlugin({})
+  ]
 };

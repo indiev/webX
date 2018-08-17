@@ -1,3 +1,4 @@
 import sampleStore from './sampleStore';
+import UserStore from './UserStore';
 
-export default { sampleStore };
+export default { sampleStore, UserStore };

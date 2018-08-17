@@ -1,5 +1,6 @@
 import Navbar from './Navbar';
 import NavbarBrand from './NavbarBrand';
-import NavItems from './NavItems';
+import Nav from './Nav';
+import NavItem from './NavItem';
 
-export { Navbar, NavbarBrand, NavItems };
+export { Navbar, NavbarBrand, Nav, NavItem };

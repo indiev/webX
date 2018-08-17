@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { API_ENDPOINT } from '~/constants';
+import { API_ENDPOINT, ACCESS_TOKEN } from '~/constants';
 
 const defaultHeaders = () => ({
-  // authorization: `Bearer ${token}`
+  authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
 });
 
 const defaultOptions = {
